@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 这是什么仓库
 
-一部**中式克苏鲁**长篇小说的资料与世界观仓库，不是软件项目：没有构建、测试或 lint。世界观、鬼类、时代、地理、社会、主线骨架已大半定下，第一卷卷纲、章纲已排，正文写到第一章（`正文/`），人物尚未定案；当前进度以交接文档为准。SessionStart 钩子报告的 webnovel-writer 项目（`.webnovel/state.json`）尚未初始化，这是正常的，不要主动去跑 `/webnovel-init`。
+一部**中式克苏鲁**长篇小说的资料与世界观仓库，不是软件项目：没有构建、测试或 lint。世界观、鬼类、时代、地理、社会、主线骨架已大半定下，第一卷卷纲、章纲 2026-09-24 整份重写为 67 章，正文已清空、待从第一章重写（`正文/`），人物尚未定案；当前进度以交接文档为准。SessionStart 钩子报告的 webnovel-writer 项目（`.webnovel/state.json`）尚未初始化，这是正常的，不要主动去跑 `/webnovel-init`。
 
 `AGENTS.md` 写了格式、命名、提交规范，`交接文档.md` 写了当前进度与全部定案摘要。开工前先读这两份，再按交接文档第一节列的顺序读下去。
 
