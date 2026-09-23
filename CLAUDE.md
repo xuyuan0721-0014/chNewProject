@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 这是什么仓库
 
-一部**中式克苏鲁**长篇小说的资料与世界观仓库，不是软件项目：没有构建、测试或 lint。目前处在世界观奠基阶段（主要在定鬼类设定），人物、时代、地理、主线、正文都还没开始。SessionStart 钩子报告的 webnovel-writer 项目（`.webnovel/state.json`）尚未初始化，这是正常的，不要主动去跑 `/webnovel-init`。
+一部**中式克苏鲁**长篇小说的资料与世界观仓库，不是软件项目：没有构建、测试或 lint。世界观、鬼类、时代、地理、社会、主线骨架已大半定下，第一卷卷纲、章纲已排，正文写到第一章（`正文/`），人物尚未定案；当前进度以交接文档为准。SessionStart 钩子报告的 webnovel-writer 项目（`.webnovel/state.json`）尚未初始化，这是正常的，不要主动去跑 `/webnovel-init`。
 
 `AGENTS.md` 写了格式、命名、提交规范，`交接文档.md` 写了当前进度与全部定案摘要。开工前先读这两份，再按交接文档第一节列的顺序读下去。
 
@@ -35,6 +35,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **考据**：引用典籍要回到本地原文核对，记下书名、卷篇和源文件路径；语料缺字错字不改，另加【按】说明。“小说改造”要明确标注，不能冒充古籍原义。
 - 本地古籍语料是殆知阁 `daizhigev20-master/`（几 GB，已 gitignore，不能强行 add）。各文件里的出处路径都相对仓库根目录，例如 `daizhigev20-master/子藏/笔记/子不语.txt`。
 - 改动要窄，不要为了小改动重排整篇文档。
+
+## 写正文
+
+- **写或改正文（`正文/` 下任何文件，哪怕改一句），先加载项目技能 `jianzhu-style`**（`.claude/skills/jianzhu-style/SKILL.md`）。全局同名的 `wuzei-style` 是《诡秘之主》版，不要用。
+- 动笔前照 `SKILL.md` 第零节第 5 条读完七份固定必读，按第 6 条加读；章首注里写明读过哪几份（第 7 条）。
+- 派子代理写正文时，把这两条原样写进给子代理的任务里，子代理不会自己带上技能。
 
 ## 检查与提交
 
