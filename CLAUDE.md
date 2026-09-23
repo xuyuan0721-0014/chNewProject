@@ -41,6 +41,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **写或改正文（`正文/` 下任何文件，哪怕改一句），先加载项目技能 `jianzhu-style`**（`.claude/skills/jianzhu-style/SKILL.md`）。全局同名的 `wuzei-style` 是《诡秘之主》版，不要用。
 - 动笔前照 `SKILL.md` 第零节第 5 条读完七份固定必读，按第 6 条加读；章首注里写明读过哪几份（第 7 条）。
 - 派子代理写正文时，把这两条原样写进给子代理的任务里，子代理不会自己带上技能。
+- `.claude/settings.json` 配了一个 PreToolUse 钩子（`.claude/hooks/zhengwen_reminder.py`）：Write/Edit 的目标在 `正文/` 下时，把上面两条的提醒注入上下文。它只提醒、不拦截，也查不了读没读，读还是要自己读。
 
 ## 检查与提交
 
