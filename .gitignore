@@ -10,3 +10,6 @@ daizhigev20-master.zip
 【批量下载】《捞尸人》作者：纯洁滴小龙等.zip
 捞尸人分割/
 捞尸人.txt
+
+# 正文守门钩子的会话账本，只在本机
+.claude/hooks/state/

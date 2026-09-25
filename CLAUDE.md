@@ -43,7 +43,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **写或改正文（`正文/` 下任何文件，哪怕改一句），先加载项目技能 `jianzhu-style`**（`.claude/skills/jianzhu-style/SKILL.md`），再读 `写作规矩.md`。全局同名的 `wuzei-style` 是《诡秘之主》版，不要用。
 - 技能只管笔法（照《剑烛大荒》的写法，通用，不含本书内容），照它第零节读完 `references/` 下十二份细则。本书自己的工序和约定在仓库根目录 `写作规矩.md`：动笔前照它第一节读完设定七份；按第 4 条加读；章首注里写明读过哪几份（第 5 条）；伏笔对着章纲走，写完逐条核，新冒出来的线记进章纲（第 6 条）；本章出场的每个人先在 `02-人物/` 立好或补好小传、读完再写，写完逐个更新（第 7 条、第二节）。主角、立场、名目、白泽图、章长等本书约定也在这一份。
 - 派子代理写正文时，把这两条原样写进给子代理的任务里，子代理不会自己带上技能和 `写作规矩.md`。
-- `.claude/settings.json` 配了一个 PreToolUse 钩子（`.claude/hooks/zhengwen_reminder.py`）：Write/Edit 的目标在 `正文/` 下时，把上面两条的提醒注入上下文。它只提醒、不拦截，也查不了读没读，读还是要自己读。
+- `.claude/settings.json` 挂了守门钩子 `.claude/hooks/zhengwen_guard.py`（2026-09-25 起拦截，原 `zhengwen_reminder.py` 删去）：本会话（最近一次上下文压缩或清空之后）没调用 `jianzhu-style`、没用 Read 整份读完 `references/` 十二份细则和 `写作规矩.md`，就拒绝对 `正文/` 的 Write/Edit，以及带写入、删除、移动的 Bash/PowerShell 命令，并列出缺哪几份；读全了放行，并注入提醒。账记在 `.claude/hooks/state/`（不入库）。它只能保证读过，保证不了用对；设定七份、人物小传仍要自己读。
+- **写完审查**（2026-09-25 起）：改过正文，收尾前必须派审查代理 `zhengwen-reviewer`（`.claude/agents/zhengwen-reviewer.md`，只读不改）审一遍，任务里写明待审章节；代理未注册的会话里，派 general-purpose 并写明“先读 `.claude/agents/zhengwen-reviewer.md`，照其中说明审查”。清单里“必须改”逐条改完，“建议改”酌情处理，“规定之间的矛盾”交作者定，再向作者汇报。守门钩子在收尾时查这一步，没审就拦下；作者说“跳过审查”可免。
 
 ## 检查与提交
 
